@@ -1,4 +1,9 @@
+package br.unitins.topicos.Lista.service;
+
+import br.unitins.topicos.Lista.model.Task;
+import br.unitins.topicos.Lista.repository.TaskRepository;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 

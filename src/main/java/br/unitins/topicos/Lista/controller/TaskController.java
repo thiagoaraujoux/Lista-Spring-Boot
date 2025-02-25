@@ -1,3 +1,7 @@
+package br.unitins.topicos.Lista.controller;
+
+import br.unitins.topicos.Lista.model.Task;
+import br.unitins.topicos.Lista.service.TaskService;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
@@ -22,7 +26,9 @@ public class TaskController {
                 WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(TaskController.class).one(task.getId())).withSelfRel()))
             .collect(Collectors.toList());
 
-        return CollectionModel.of(tasks, WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(TaskController.class).all()).withSelfRel());
+        return CollectionModel.of(tasks,
+            WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(TaskController.class).all()).withSelfRel()
+        );
     }
 
     @GetMapping("/{id}")

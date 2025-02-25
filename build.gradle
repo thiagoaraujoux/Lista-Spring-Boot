@@ -35,8 +35,9 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
-	// MySQL Connector
-	runtimeOnly 'mysql:mysql-connector-j'
+	// MySQL Connector com versão específica
+	runtimeOnly 'com.mysql:mysql-connector-j:8.0.33'
+
 
 	// DevTools para hot reload
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'

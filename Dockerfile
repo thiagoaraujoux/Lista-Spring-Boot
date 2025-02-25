@@ -7,6 +7,9 @@ WORKDIR /app
 # Copia os arquivos do projeto
 COPY . .
 
+# Dá permissão de execução para o Gradle Wrapper
+RUN chmod +x ./gradlew
+
 # Executa o build do projeto com Gradle
 RUN ./gradlew bootJar
 

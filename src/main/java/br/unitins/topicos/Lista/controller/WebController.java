@@ -1,3 +1,6 @@
+package br.unitins.topicos.Lista.controller;
+
+import br.unitins.topicos.Lista.service.TaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +16,6 @@ public class WebController {
     @GetMapping("/web/tasks")
     public String viewTasks(Model model) {
         model.addAttribute("tasks", service.findAll());
-        return "tasks";
+        return "tasks";  // Deve corresponder ao nome do arquivo de template HTML (ex.: tasks.html)
     }
 }
