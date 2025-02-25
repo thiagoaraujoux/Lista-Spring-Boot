@@ -1,0 +1,306 @@
+/* Neomorphic Two-Column Layout */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #799dff, #799dff);
+    padding: 2rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background: #e0e0e0;
+    border-radius: 20px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    transition: all 0.3s ease;
+    max-height: 80vh; /* Limita o crescimento */
+}
+
+/* Form Section */
+.form-section {
+    padding: 2rem;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 12px 12px 24px #bebebe, -12px -12px 24px #ffffff;
+}
+
+.form-section h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+button i {
+    font-size: 1rem;
+}
+
+.add-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.add-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Lista de Tarefas com Tamanho Fixo */
+.task-list {
+    padding: 2rem;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 12px 12px 24px #bebebe, -12px -12px 24px #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 500px; /* Tamanho fixo definido */
+    overflow-y: auto; /* Barra de rolagem ao exceder o limite */
+}
+
+/* Barra de rolagem customizada */
+.task-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.task-list::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+    background: #b0b0b0;
+    border-radius: 10px;
+}
+
+.task-list::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+a {
+    text-decoration: none; 
+}
+/* Estilização dos Itens */
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    border-radius: 15px;
+    background: #e0e0e0;
+    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+}
+
+/* Área de Informações e Ações */
+.task-info {
+    flex-grow: 1;
+    margin-right: 1rem;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #e53935;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    background: #e0e0e0;
+    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+}
+
+.task-info {
+    flex-grow: 1;
+    margin-right: 1rem;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #e53935;
+}
+
+/* Layout Responsivo com Altura Fixa e Barra de Rolagem */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .form-section {
+        padding: 1.5rem;
+    }
+
+    .task-list {
+        padding: 1.5rem;
+        height: 400px; /* Altura fixa em telas médias */
+        overflow-y: auto;
+    }
+
+    button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Empilha as colunas */
+        padding: 1.5rem;
+    }
+
+    .form-section, .task-list {
+        padding: 1rem;
+        height: 350px; /* Altura fixa em telas menores */
+        overflow-y: auto; /* Mantém a barra de rolagem */
+    }
+
+    button {
+        padding: 0.7rem;
+    }
+
+    input, textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .task-list {
+        max-height: 300px; /* Tamanho fixo em dispositivos muito pequenos */
+        overflow-y: auto; /* Sempre exibe a barra de rolagem */
+    }
+
+    button {
+        font-size: 0.8rem;
+    }
+}
+
+/* Barra de rolagem customizada */
+.task-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.task-list::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+    background: #b0b0b0;
+    border-radius: 10px;
+}
+
+.task-list::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}

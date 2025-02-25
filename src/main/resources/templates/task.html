@@ -2,13 +2,55 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lista de Tarefas</title>
-</head>
+    <link rel="stylesheet" th:href="@{/css/template.css}">
+    <script>
+        // Função para confirmar a exclusão
+        function confirmarExclusao(event) {
+            if (!confirm('Tem certeza que deseja excluir esta tarefa?')) {
+                event.preventDefault(); // Cancela o envio do formulário se o usuário não confirmar
+            }
+        }
+    </script>
+    </head>
 <body>
-    <h1>Lista de Tarefas</h1>
-    <ul>
-        <li th:each="task : ${tasks}">
-            <span th:text="${task.title}"></span> - <span th:text="${task.description}"></span>
-        </li>
-    </ul>
+    <div class="container">
+        <!-- Formulário de inserção -->
+        <div class="form-section">
+            <h2>Adicionar Tarefa</h2>
+            <form th:action="@{/tasks/add}" method="post">
+                <input type="text" name="title" placeholder="Título" required>
+                <textarea name="description" placeholder="Descrição" required></textarea>
+                <button type="submit" class="add-btn">
+                    <i class="fas fa-plus-circle"></i> Adicionar Tarefa
+                </button>
+            </form>
+        </div>
+    
+        <!-- Lista de tarefas -->
+        <div class="task-list">
+            <h2>Minhas Tarefas</h2>
+            <ul>
+                <li th:each="task : ${tasks}">
+                    <div class="task-info">
+                        <strong th:text="${task.title}"></strong>
+                        <p th:text="${task.description}"></p>
+                    </div>
+                    <div class="task-actions">
+                        <a th:href="@{'/tasks/edit/' + ${task.id}}">
+                            <button class="edit-btn">
+                                <i class="fas fa-edit"></i> Editar
+                            </button>
+                        </a>
+                        <form th:action="@{/tasks/delete/{id}(id=${task.id})}" method="post" onsubmit="confirmarExclusao(event)">
+                            <button class="delete-btn">
+                                <i class="fas fa-trash-alt"></i> Excluir
+                            </button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
 </body>
 </html>

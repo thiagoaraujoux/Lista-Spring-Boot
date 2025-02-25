@@ -30,6 +30,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'com.h2database:h2'
+
 
 	// Lombok
 	compileOnly 'org.projectlombok:lombok'
@@ -49,9 +51,13 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	exclude '**/*IntegrationTest*'  // Ignora testes que exigem banco
 }
 
 // Garante a criação do JAR corretamente
 bootJar {
 	archiveFileName = 'app.jar'
+}
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-parameters"
 }
