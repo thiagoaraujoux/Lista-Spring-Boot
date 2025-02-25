@@ -11,7 +11,7 @@ COPY . .
 RUN chmod +x ./gradlew
 
 # Executa o build do projeto com Gradle
-RUN ./gradlew bootJar
+RUN ./gradlew bootRun
 
 # Expõe a porta 8080
 EXPOSE 8080
