@@ -1,20 +1,11 @@
-# Imagem base com Java 21
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jdk-jammy as build
 
-# Diretório de trabalho no container
 WORKDIR /app
-
-# Copia os arquivos do projeto
 COPY . .
+RUN ./gradlew build --no-daemon
 
-# Dá permissão de execução para o Gradle Wrapper
-RUN chmod +x ./gradlew
-
-# Executa o build do projeto com Gradle
-RUN ./gradlew bootJar
-
-# Expõe a porta 8080
+FROM eclipse-temurin:21-jdk-jammy
+WORKDIR /app
+COPY --from=build /app/build/libs/*.jar app.jar
 EXPOSE 8080
-
-# Comando para rodar a aplicação
-CMD ["java", "-jar", "build/libs/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

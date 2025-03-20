@@ -1,12 +1,12 @@
 version: '3.8'
 
 services:
-  app:
-    image: openjdk:17
-    container_name: spring_app
-    working_dir: /app
-    volumes:
-      - .:/app
+  spring-app:
+    build: .
+    container_name: spring-microservice
     ports:
       - "8080:8080"
-    command: ["sh", "-c", "./gradlew bootRun"]
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb
+      - SPRING_H2_CONSOLE_ENABLED=true
