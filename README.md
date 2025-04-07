@@ -26,8 +26,7 @@ Antes de executar o projeto, certifique-se de ter os seguintes itens instalados:
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/thiagoaraujoux/Lista-Spring-Boot
 ```
 
 2. Construa e inicie os containers com o Docker Compose:
